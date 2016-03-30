@@ -20,12 +20,6 @@ module RogueEnumerable
   end
 
   def reject
-    result = []
-
-    each do |value|
-      result << value unless yield(value)
-    end
-
-    self.class.new(result)
+    select { |value| !yield(value) }
   end
 end
