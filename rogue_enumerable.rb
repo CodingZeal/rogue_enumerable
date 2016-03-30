@@ -46,4 +46,14 @@ module RogueEnumerable
 
     object
   end
+
+  def reduce(initial_value)
+    result = initial_value
+
+    each do |value|
+      result = yield(result, value)
+    end
+
+    result
+  end
 end

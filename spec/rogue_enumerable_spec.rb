@@ -91,6 +91,15 @@ describe "RogueEnumerable" do
         { a: 2, b: 2, c: 1, d: 2 }
       )
     end
+  end
 
+  describe "reduce" do
+    let(:input) { [1, 2, 3, 4, 5] }
+
+    it "reduces the collection to a single value" do
+      expect(subject.reduce(0) {|memo, number| memo + number }).to eq(
+        15
+      )
+    end
   end
 end
