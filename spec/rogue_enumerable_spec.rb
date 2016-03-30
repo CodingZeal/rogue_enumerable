@@ -77,4 +77,20 @@ describe "RogueEnumerable" do
       end
     end
   end
+
+  describe "each_with_object" do
+    let(:input) { [:a, :b, :c, :d, :d, :a, :b] }
+    let(:memo) { Hash.new(0) }
+
+    it "returns object with block applied to all values" do
+      expect(
+        subject.each_with_object(memo) do |value, object|
+          object[value] += 1
+        end
+      ).to eq(
+        { a: 2, b: 2, c: 1, d: 2 }
+      )
+    end
+
+  end
 end

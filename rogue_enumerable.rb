@@ -38,4 +38,12 @@ module RogueEnumerable
 
     nil
   end
+
+  def each_with_object(object)
+    each do |value|
+      yield(value, object)
+    end
+
+    object
+  end
 end
