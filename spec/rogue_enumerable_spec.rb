@@ -14,9 +14,19 @@ describe "RogueEnumerable" do
   describe "select" do
     let(:input) { [1, 2, 3, 4, 5, 6] }
 
-    it "selects values matching condition" do
+    it "includes values matching condition" do
       expect(subject.select { |number| number.odd? }).to eq(
         TestEnumerable.new([1, 3, 5])
+      )
+    end
+  end
+
+  describe "reject" do
+    let(:input) { [1, 2, 3, 4, 5, 6] }
+
+    it "omits values matching condition" do
+      expect(subject.reject { |number| number.odd? }).to eq(
+        TestEnumerable.new([2, 4, 6])
       )
     end
   end

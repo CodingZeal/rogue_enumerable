@@ -18,4 +18,14 @@ module RogueEnumerable
 
     self.class.new(result)
   end
+
+  def reject
+    result = []
+
+    each do |value|
+      result << value unless yield(value)
+    end
+
+    self.class.new(result)
+  end
 end
