@@ -30,4 +30,25 @@ describe "RogueEnumerable" do
       )
     end
   end
+
+  describe "first" do
+    let(:input) { [1, 2, 3, 4, 5, 6] }
+
+    it "returns the first value" do
+      expect(subject.first).to eq(
+        1
+      )
+    end
+
+    context "with an empty collection" do
+      let(:input) { [] }
+      
+      it "returns nil" do
+        expect(subject.first).to eq(
+          nil
+        )
+      end
+    end
+  end
+
 end

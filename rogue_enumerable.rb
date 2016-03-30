@@ -22,4 +22,12 @@ module RogueEnumerable
   def reject
     select { |value| !yield(value) }
   end
+
+  def first
+    each do |value|
+      return value
+    end
+
+    nil
+  end
 end
