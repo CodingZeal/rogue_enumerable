@@ -8,4 +8,14 @@ module RogueEnumerable
 
     self.class.new(result)
   end
+
+  def select
+    result = []
+
+    each do |value|
+      result << value if yield(value)
+    end
+
+    self.class.new(result)
+  end
 end
