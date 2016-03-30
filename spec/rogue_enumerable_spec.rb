@@ -30,7 +30,6 @@ describe "RogueEnumerable" do
       )
     end
   end
-
   describe "first" do
     let(:input) { [1, 2, 3, 4, 5, 6] }
 
@@ -42,7 +41,7 @@ describe "RogueEnumerable" do
 
     context "with an empty collection" do
       let(:input) { [] }
-      
+
       it "returns nil" do
         expect(subject.first).to eq(
           nil
@@ -51,4 +50,31 @@ describe "RogueEnumerable" do
     end
   end
 
+  describe "find" do
+    context "With small sets values" do
+      let(:input) { [1, 2, 3, 4, 5, 6] }
+
+      it "Returns the first element matching a condition" do
+        expect(subject.find { |number| number.even? }).to eq(
+          2
+        )
+      end
+
+      it "returns nil if there are no matching elements" do
+        expect(subject.find { |number| number > 100 }).to eq(
+          nil
+        )
+      end
+    end
+
+    context "With large sets of values" do
+      let(:input) { (1..100_000_000) }
+
+      it "Returns the first element matching a condition" do
+        expect(subject.find { |number| number.even? }).to eq(
+          2
+        )
+      end
+    end
+  end
 end

@@ -30,4 +30,12 @@ module RogueEnumerable
 
     nil
   end
+
+  def find
+    each do |value|
+      return value if yield(value)
+    end
+
+    nil
+  end
 end
