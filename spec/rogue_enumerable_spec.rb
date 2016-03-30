@@ -102,4 +102,12 @@ describe "RogueEnumerable" do
       )
     end
   end
+
+  describe "all?" do
+    let(:input) { [1, 2, 3, 4, 5] }
+
+    it "returns true if all elements satisfy condition" do
+      expect(subject.all? {|number| number > 0 }).to eq(true)
+    end
+  end
 end

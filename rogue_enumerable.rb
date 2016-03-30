@@ -56,4 +56,8 @@ module RogueEnumerable
 
     result
   end
+
+  def all?
+    find { |value| !yield(value) }.nil?
+  end
 end
